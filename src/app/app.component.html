@@ -1,0 +1,18 @@
+<div class='container'>
+  <h1> Erema's little forum </h1>
+
+  <app-post-form
+  (onAdd) = "updatePosts($event)"
+  ></app-post-form>
+
+  <div class="card">
+    <h2>Search post</h2>
+    <input type="text" [(ngModel)]="search"> </div>
+
+  <app-post *ngFor="let p of posts | filter: search"
+    [post] = "p"
+    (onDelete)='DeletePost($event)'
+  >
+  </app-post>
+
+</div>
